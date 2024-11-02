@@ -3,20 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Website</title>
+    <title>Welcome Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magic/1.1.0/magic.min.css">
     <style>
-        /* 样式使“hello”居中 */
-        body {
+        /* 页面基本样式 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* 背景纯白 */
+        }
+
+        /* 欢迎动画的圆形 */
+        #welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* 白色背景 */
+            z-index: 10; /* 让欢迎页面位于最上层 */
+        }
+
+        #welcome-circle {
+            width: 200px;
+            height: 200px;
+            background-color: #000000; /* 黑色圆形 */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff; /* 文字颜色为白色 */
+            font-size: 24px;
+            text-align: center;
+        }
+
+        /* 主页面内容样式（可以根据需要自定义） */
+        #main-content {
+            display: none;
+            text-align: center;
+            padding: 50px;
         }
     </style>
 </head>
 <body>
-    <h1>hello</h1>
+
+<!-- 欢迎页面 -->
+<div id="welcome-screen">
+    <div id="welcome-circle" class="magictime">Welcome</div>
+</div>
+
+<!-- 主页面内容 -->
+<div id="main-content">
+    <h1>主页面内容</h1>
+    <p>这是主页面的内容，你可以在这里添加更多内容。</p>
+</div>
+
+<script>
+    // 页面加载后触发动画
+    window.addEventListener("load", function() {
+        // 添加 boingOutDown 动画类
+        const welcomeCircle = document.getElementById("welcome-circle");
+        welcomeCircle.classList.add("boingOutDown");
+
+        // 等待动画结束后隐藏欢迎页面并显示主内容
+        welcomeCircle.addEventListener("animationend", function() {
+            document.getElementById("welcome-screen").style.display = "none";
+            document.getElementById("main-content").style.display = "block";
+        });
+    });
+</script>
+
 </body>
 </html>
