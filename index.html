@@ -3,25 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Animation</title>
+    <title>个人主页</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magic/1.1.0/magic.min.css">
     <style>
         /* 页面基本样式 */
         body, html {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
             font-family: Arial, sans-serif;
-            background-color: #ffffff; /* 背景纯白 */
-        }
-         /* 设置动画速度 */
-        .magictime {
-            animation-duration: 2s; /* 设置动画速度为 2 秒 */
+            background-color: #ffffff; /* 正文白色背景 */
+            color: #000000; /* 正文黑色文字 */
         }
 
-        /* 欢迎动画的圆形 */
+        /* 顶部导航栏样式 */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #000000; /* 导航栏黑色背景 */
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .navbar a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #ffffff; /* 导航栏白色文字 */
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #007acc; /* 鼠标悬浮时导航栏文字变为蓝色 */
+        }
+
+        /* 欢迎动画样式 */
+        .magictime {
+            animation-duration: 2s;
+        }
+
         #welcome-screen {
             position: fixed;
             top: 0;
@@ -31,28 +49,60 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #ffffff; /* 白色背景 */
-            z-index: 10; /* 让欢迎页面位于最上层 */
+            background-color: #ffffff;
+            z-index: 10;
         }
 
         #welcome-circle {
             width: 400px;
             height: 400px;
-            background-color: #000000; /* 黑色圆形 */
+            background-color: #000000;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #ffffff; /* 文字颜色为白色 */
+            color: #ffffff;
             font-size: 48px;
             text-align: center;
         }
 
-        /* 主页面内容样式（可以根据需要自定义） */
+        /* 主页面样式 */
         #main-content {
             display: none;
-            text-align: center;
-            padding: 50px;
+            padding: 20px;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        /* 个人信息区域 */
+        .profile-container {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+
+        .profile-info {
+            max-width: 600px;
+        }
+
+        .profile-info h1 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .profile-info p {
+            line-height: 1.6;
+            font-size: 16px;
+            color: #555;
         }
     </style>
 </head>
@@ -65,18 +115,29 @@
 
 <!-- 主页面内容 -->
 <div id="main-content">
-    <h1>主页面内容</h1>
-    <p>这是主页面的内容，你可以在这里添加更多内容。</p>
+    <!-- 导航栏 -->
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#project">Project</a>
+        <a href="#cv">CV</a>
+    </div>
+
+    <!-- 个人信息展示区域 -->
+    <div class="profile-container">
+        <img src="Figure/profile.jpg" alt="个人照片" class="profile-image">
+        <div class="profile-info">
+            <h1>你的名字</h1>
+            <p>这是你的个人简介。你可以在这里描述自己的职业、兴趣和其他相关信息。描述可以简洁清晰，让访问者了解你的背景和研究兴趣。</p>
+        </div>
+    </div>
 </div>
 
 <script>
     // 页面加载后触发动画
     window.addEventListener("load", function() {
-        // 添加 boingOutDown 动画类
         const welcomeCircle = document.getElementById("welcome-circle");
         welcomeCircle.classList.add("boingOutDown");
 
-        // 等待动画结束后隐藏欢迎页面并显示主内容
         welcomeCircle.addEventListener("animationend", function() {
             document.getElementById("welcome-screen").style.display = "none";
             document.getElementById("main-content").style.display = "block";
