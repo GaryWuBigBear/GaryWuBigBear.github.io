@@ -1,13 +1,11 @@
-Hello! Welcome to my space! I am Ruochen WU, a second-year master student in TUDelft (major in ME, minor in Multi-Machine Engineering).
+Hello! Welcome to my space! I’m Ruochen Wu, a second-year Master's student at TU Delft, specializing in Mechanical Engineering with a focus on Multi-Machine Engineering. I expect to complete my Master's degree in the 加粗{summer of 2025}.
 
-I obtained my bachelor degree from Central South University (major in Transportation, minor in Transportation Equipment and Control Engineering).
+I completed my Bachelor’s degree at Central South University, majoring in Transportation with a minor in Transportation Equipment and Control Engineering.
 
-I am looking for a PhD position, especially in Robotics, Soft Robotics, Embedded AI, AI for Science, AI Application, Data Prediction and Trdaing Strategy.
+I’m currently seeking a PhD position, with particular interest in Robotics, Soft Robotics, Embedded AI, AI for Science, AI Applications, Data Prediction, and Trading Strategy.
 
-Here is my home page, you can get:
-
-Personal CV (updated on 8th, Nov);
-
-Master's transcript (updated on 9th, Nov);
-
-Details of my researches.
+On my homepage, you’ll find:
+{下边三个无序列表}
+My updated CV (updated on November 8th)
+My Master’s transcript (updated on November 9th)
+Detailed information on my research projects (updated on November 9th)
