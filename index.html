@@ -5,79 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人主页</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magic/1.1.0/magic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> <!-- 引入 MathJax 库 -->
     <style>
-        /* 页面基本样式 */
+        /* 样式保持不变 */
         body, html {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #ffffff; /* 正文白色背景 */
-            color: #000000; /* 正文黑色文字 */
+            background-color: #ffffff;
+            color: #000000;
         }
 
-        /* 顶部导航栏样式 */
         .navbar {
             display: flex;
             justify-content: center;
-            background-color: #000000; /* 导航栏黑色背景 */
-            padding: 20px; /* 增加导航栏的高度 */
+            background-color: #000000;
+            padding: 20px;
             border-bottom: 1px solid #ddd;
-            position: relative;
-            z-index: 5; /* 确保欢迎动画在导航栏之上 */
         }
 
         .navbar a {
             margin: 0 20px;
             text-decoration: none;
-            color: #ffffff; /* 导航栏白色文字 */
-            font-weight: bold;
-            font-size: 18px; /* 增大导航栏文字 */
-        }
-
-        .navbar a:hover {
-            color: #007acc; /* 鼠标悬浮时导航栏文字变为蓝色 */
-        }
-
-        /* 欢迎动画样式 */
-        .magictime {
-            animation-duration: 2s;
-        }
-
-        #welcome-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #ffffff;
-            z-index: 10; /* 确保欢迎动画位于最前 */
-        }
-
-        #welcome-circle {
-            width: 400px;
-            height: 400px;
-            background-color: #000000;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             color: #ffffff;
-            font-size: 48px;
-            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
         }
 
-        /* 主页面样式 */
-        #main-content {
-            display: none;
-            padding: 20px;
-            max-width: 900px; /* 扩展主内容区域宽度 */
-            margin: 50px auto;
-        }
-
-        /* 个人信息区域 */
         .profile-container {
             display: flex;
             align-items: flex-start;
@@ -85,11 +39,11 @@
         }
 
         .profile-image {
-            width: 250px; /* 放大照片尺寸 */
+            width: 250px;
             height: 250px;
             margin-right: 30px;
             object-fit: cover;
-            border-radius: 10px; /* 将照片边框调整为轻微的圆角矩形 */
+            border-radius: 10px;
         }
 
         .profile-info {
@@ -98,58 +52,46 @@
 
         .profile-info h1 {
             margin-top: 0;
-            font-size: 28px; /* 增大名字的字体 */
+            font-size: 28px;
             color: #333;
         }
 
-        .profile-info p {
+        .profile-info .latex-content {
             line-height: 1.6;
-            font-size: 18px; /* 增大简介的字体 */
+            font-size: 18px;
             color: #555;
         }
     </style>
 </head>
 <body>
 
-<!-- 欢迎页面 -->
-<div id="welcome-screen">
-    <div id="welcome-circle" class="magictime">Welcome</div>
-</div>
-
-<!-- 主页面内容 -->
 <div id="main-content">
-    <!-- 导航栏 -->
     <div class="navbar">
         <a href="#home">Home</a>
         <a href="#project">Project</a>
         <a href="#cv">CV</a>
     </div>
 
-    <!-- 个人信息展示区域 -->
     <div class="profile-container">
         <img src="Figure/profile.jpg" alt="个人照片" class="profile-image">
         <div class="profile-info">
             <h1>你的名字</h1>
-            <p>这是你的个人简介。你可以在这里描述自己的职业、兴趣和其他相关信息。描述可以简洁清晰，让访问者了解你的背景和研究兴趣。</p>
+            <div id="latex-content" class="latex-content">正在加载...</div>
         </div>
     </div>
 </div>
 
 <script>
-    // 页面加载后触发动画
-    window.addEventListener("load", function() {
-        const welcomeScreen = document.getElementById("welcome-screen");
-        const welcomeCircle = document.getElementById("welcome-circle");
-
-        // 添加动画效果
-        welcomeCircle.classList.add("boingOutDown");
-
-        // 等待动画结束后隐藏欢迎页面并显示主内容
-        welcomeCircle.addEventListener("animationend", function() {
-            welcomeScreen.style.display = "none";
-            document.getElementById("main-content").style.display = "block";
+    fetch('txt/home.tex')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('latex-content').innerHTML = `\\(${data}\\)`;
+            MathJax.typeset(); // 调用 MathJax 渲染
+        })
+        .catch(error => {
+            console.error('无法加载 LaTeX 文件:', error);
+            document.getElementById('latex-content').textContent = "内容加载失败，请稍后重试。";
         });
-    });
 </script>
 
 </body>
