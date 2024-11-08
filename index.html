@@ -22,6 +22,8 @@
             background-color: #000000; /* 导航栏黑色背景 */
             padding: 20px; /* 增加导航栏的高度 */
             border-bottom: 1px solid #ddd;
+            position: relative;
+            z-index: 5; /* 确保欢迎动画在导航栏之上 */
         }
 
         .navbar a {
@@ -51,7 +53,7 @@
             justify-content: center;
             align-items: center;
             background-color: #ffffff;
-            z-index: 10;
+            z-index: 10; /* 确保欢迎动画位于最前 */
         }
 
         #welcome-circle {
@@ -136,9 +138,19 @@
 <script>
     // 页面加载后触发动画
     window.addEventListener("load", function() {
+        const welcomeScreen = document.getElementById("welcome-screen");
         const welcomeCircle = document.getElementById("welcome-circle");
+
+        // 添加动画效果
         welcomeCircle.classList.add("boingOutDown");
 
+        // 等待动画结束后隐藏欢迎页面并显示主内容
         welcomeCircle.addEventListener("animationend", function() {
-            document.getElementById("welcome-screen").style.display = "none";
-            document.getElementById("main-content").style.display 
+            welcomeScreen.style.display = "none";
+            document.getElementById("main-content").style.display = "block";
+        });
+    });
+</script>
+
+</body>
+</html>
