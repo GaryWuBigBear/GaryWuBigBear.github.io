@@ -41,7 +41,7 @@
             justify-content: center;
             align-items: center;
             background-color: #ffffff;
-            z-index: 10; /* 确保欢迎页面位于最上层 */
+            z-index: 10;
         }
 
         #welcome-circle {
@@ -57,6 +57,15 @@
             text-align: center;
         }
 
+        /* 主页面样式 */
+        #main-content {
+            display: none;
+            padding: 40px; /* 适当增加主内容区域的边距 */
+            max-width: 1200px; /* 扩展主内容区域的宽度 */
+            margin: 0 auto;
+        }
+
+        /* 个人信息区域 */
         .profile-container {
             display: flex;
             align-items: flex-start;
@@ -64,15 +73,15 @@
         }
 
         .profile-image {
-            width: 250px;
-            height: 250px;
-            margin-right: 30px;
+            width: 300px; /* 放大照片尺寸 */
+            height: 300px;
+            margin-right: 40px; /* 增加照片和文本的间距 */
             object-fit: cover;
             border-radius: 10px;
         }
 
         .profile-info {
-            max-width: 600px;
+            max-width: 700px; /* 增加文本框的宽度 */
         }
 
         .profile-info h1 {
@@ -96,7 +105,7 @@
 </div>
 
 <!-- 主页面内容 -->
-<div id="main-content" style="display: none;">
+<div id="main-content">
     <div class="navbar">
         <a href="#home">Home</a>
         <a href="#project">Project</a>
