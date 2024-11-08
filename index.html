@@ -124,30 +124,17 @@
 
 <script>
     // 使用 Fetch API 加载 LaTeX 文件内容
-    // fetch('txt/home.tex')
-    //     .then(response => response.text())
-    //     .then(data => {
-    //         // 将 LaTeX 文件内容插入到页面并使用 MathJax 渲染
-    //         document.getElementById('latex-content').textContent = data;
-    //         MathJax.typeset(); // 触发 MathJax 渲染
-    //     })
-    //     .catch(error => {
-    //         console.error('无法加载 LaTeX 文件:', error);
-    //         document.getElementById('latex-content').textContent = "内容加载失败，请稍后重试。";
-    //     });
-
     fetch('txt/home.tex')
-    .then(response => response.text())
-    .then(data => {
-        // 使用 $ 符号包裹 LaTeX 内容，确保 MathJax 识别
-        document.getElementById('latex-content').innerHTML = `$${data}$`;
-        MathJax.typeset(); // 触发 MathJax 渲染
-    })
-    .catch(error => {
-        console.error('无法加载 LaTeX 文件:', error);
-        document.getElementById('latex-content').textContent = "内容加载失败，请稍后重试。";
-    });
-
+        .then(response => response.text())
+        .then(data => {
+            // 将 LaTeX 文件内容插入到页面并使用 MathJax 渲染
+            document.getElementById('latex-content').innerHTML = `\\(${data}\\)`;
+            MathJax.typeset(); // 触发 MathJax 渲染
+        })
+        .catch(error => {
+            console.error('无法加载 LaTeX 文件:', error);
+            document.getElementById('latex-content').textContent = "内容加载失败，请稍后重试。";
+        });
 
     // 页面加载后触发动画
     window.addEventListener("load", function() {
