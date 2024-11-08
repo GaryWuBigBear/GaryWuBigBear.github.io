@@ -1,1 +1,13 @@
-这是你的个人简介。你可以在这里描述自己的职业、兴趣和其他相关信息。描述可以简洁清晰，让访问者了解你的背景和研究兴趣。
+Hello! Welcome to my space! I am Ruochen WU, a second-year master student in TUDelft (major in ME, minor in Multi-Machine Engineering).
+
+I obtained my bachelor degree from Central South University (major in Transportation, minor in Transportation Equipment and Control Engineering).
+
+I am looking for a PhD position, especially in Robotics, Soft Robotics, Embedded AI, AI for Science, AI Application, Data Prediction and Trdaing Strategy.
+
+Here is my home page, you can get:
+
+Personal CV (updated on 8th, Nov);
+
+Master's transcript (updated on 9th, Nov);
+
+Details of my researches.
