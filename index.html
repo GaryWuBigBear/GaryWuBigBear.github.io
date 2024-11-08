@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page RC Wu</title>
+    <title>个人主页</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magic/1.1.0/magic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> <!-- 引入 MathJax 库 -->
     <style>
         body, html {
             margin: 0; 
@@ -90,7 +91,7 @@
             color: #333;
         }
 
-        .profile-info p {
+        .profile-info .latex-content {
             line-height: 1.6;
             font-size: 18px;
             color: #555;
@@ -115,22 +116,24 @@
     <div class="profile-container">
         <img src="Figure/profile.jpg" alt="个人照片" class="profile-image">
         <div class="profile-info">
-            <h1>Ruochen WU</h1>
-            <p id="intro-text">正在加载...</p>
+            <h1>你的名字</h1>
+            <div id="latex-content" class="latex-content">正在加载...</div>
         </div>
     </div>
 </div>
 
 <script>
-    // 使用 Fetch API 加载文本文件内容
-    fetch('txt/home.txt')
+    // 使用 Fetch API 加载 LaTeX 文件内容
+    fetch('txt/home.tex')
         .then(response => response.text())
         .then(data => {
-            document.getElementById('intro-text').textContent = data;
+            // 将 LaTeX 文件内容插入到页面并使用 MathJax 渲染
+            document.getElementById('latex-content').textContent = data;
+            MathJax.typeset(); // 触发 MathJax 渲染
         })
         .catch(error => {
-            console.error('无法加载文本文件:', error);
-            document.getElementById('intro-text').textContent = "内容加载失败，请稍后重试。";
+            console.error('无法加载 LaTeX 文件:', error);
+            document.getElementById('latex-content').textContent = "内容加载失败，请稍后重试。";
         });
 
     // 页面加载后触发动画
