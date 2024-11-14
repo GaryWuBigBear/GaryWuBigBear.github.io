@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Files - RC WU</title>
+    <style>
+        body, html {
+            margin: 0; 
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #000000;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .navbar a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* 文件列表样式 */
+        .file-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .file-item {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+
+        .file-item a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .file-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="#project">Project</a>
+    <a href="file.html">File</a>
+</div>
+
+<!-- 文件下载列表 -->
+<div class="file-container">
+    <h2>文件下载</h2>
+    <div class="file-item"><a href="file/placeholder1.pdf" download>文档1 (PDF)</a></div>
+    <div class="file-item"><a href="file/placeholder2.pdf" download>文档2 (PDF)</a></div>
+    <div class="file-item"><a href="file/placeholder3.pdf" download>文档3 (PDF)</a></div>
+    <div class="file-item"><a href="file/placeholder4.pptx" download>文档4 (PPTX)</a></div>
+</div>
+
+</body>
+</html>
