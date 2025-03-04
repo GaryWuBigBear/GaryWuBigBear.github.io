@@ -2,7 +2,7 @@ Hello! Welcome to my space! I’m Ruochen Wu, a second-year Master's student at 
 
 I completed my Bachelor’s degree at Central South University, majoring in Transportation with a minor in Transportation Equipment and Control Engineering.
 
-I’m currently seeking a PhD position, with particular interest in Robotics, Soft Robotics, Embedded AI, AI for Science, AI Applications, Data Prediction, and Trading Strategy.
+I’m currently seeking a PhD position, with particular interest in Robotics, Soft Robotics, AI for Science, AI Applications, Data Forecasting, and Trading Strategy.
 
 On my homepage, you’ll find:
 - My CV (updated on March 4th, 2025)
